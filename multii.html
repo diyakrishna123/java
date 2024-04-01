@@ -1,0 +1,28 @@
+class Shape
+{
+public void area()
+{
+System.out.println("the area is:"+23);
+}
+}
+class Re extends Shape
+{
+public void display()
+{
+System.out.println("the perimeter is : "+80);
+}
+}
+class Ph extends Re
+{
+public void volum()
+{
+System.out.println("the volum is:"+56);
+}
+public static void main(String[] args)
+{
+Ph obj = new Ph();
+obj.area();
+obj.display();
+obj.volum();
+}
+}
