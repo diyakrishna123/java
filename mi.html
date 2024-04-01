@@ -1,0 +1,40 @@
+import java.util.Scanner;
+class Rectangle
+{
+void area(int l,int b)
+{
+int area;
+area=l*b;
+
+System.out.println("enter the area:"+area);
+}
+}
+class Shape extends Rectangle
+{
+void display()
+{
+System.out.println("display area ");
+}
+}
+class volume extends Shape
+{
+void volume()
+{
+System.out.println("volume is:");
+}
+}
+class Rect
+{
+public static void main(String args[])
+{
+Scanner a=new Scanner(System.in);
+System.out.println("enter length");
+int l=a.nextInt();
+System.out.println("enter breadth");
+int b=a.nextInt();
+volume obj=new volume();
+obj.area(l,b);
+obj.display();
+obj.volume();
+}
+}
