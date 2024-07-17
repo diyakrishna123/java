@@ -1,0 +1,59 @@
+import java.util.*;
+class matrix{
+    int row;
+    int col;
+    int [][] arr = new int[10][10]; 
+    
+public void get_matrix(){
+    int rc,cc;
+    Scanner sc = new Scanner(System.in);
+    System.out.print("enter the size of r:");
+    this.row = sc.nextInt();
+    System.out.print("enter the size of col");
+    this.col = sc.nextInt();
+    System.out.print("enter the elements: \n");
+    for(rc=0;rc<this.row;rc++){
+        for(cc=0;cc<this.col;cc++){
+            this.arr[rc][cc]=sc.nextInt();
+            }
+    }
+}
+public static matrix sum(matrix c1,matrix c2){
+    int rc,cc;
+    matrix temp = new matrix();
+    if(c1.row==c2.row && c2.col == c1.col){
+        temp.row=c1.row;
+        temp.col=c1.col;
+        for(rc=0;rc<c1.row;rc++){
+            for(cc=0;cc<c1.col;cc++){
+                temp.arr[rc][cc]=c1.arr[rc][cc]+c2.arr[rc][cc];
+            }
+        }
+    }
+    else{
+    System.out.println("not possible");
+}
+return temp;
+}
+public void display(){
+    int rc,cc;
+    for(rc=0;rc<this.row;rc++){
+        for(cc=0;cc<this.col;cc++){
+            System.out.print(this.arr[rc][cc] +"   ");
+        }
+        System.out.println(" ");
+    }
+}
+public static void main(String args[]){
+    matrix frist =new matrix();
+    matrix second = new matrix();
+    matrix temp=sum(frist,second);
+    frist.get_matrix();
+    second.get_matrix();
+    temp=sum(frist,second);
+    System.out.println("sum is:\n");
+    temp.display();
+    System.out.println("end");
+}
+}
+
