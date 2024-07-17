@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+class Person {
+    String name;
+    String gender;
+
+    // Constructor for Person class
+    public Person(String name, String gender) {
+        this.name = name;
+        this.gender = gender;
+    }
+}
+
+class Employee extends Person {
+    int empId;
+    String qualification;
+
+    // Constructor for Employee class
+    public Employee(String name, String gender, int empId, String qualification) {
+        super(name, gender);
+        this.empId = empId;
+        this.qualification = qualification;
+    }
+}
+
+class Teacher extends Employee {
+    String subject;
+    String department;
+
+    // Constructor for Teacher class
+    public Teacher(String name, String gender, int empId, String qualification, String subject, String department) {
+        super(name, gender, empId, qualification);
+        this.subject = subject;
+        this.department = department;
+    }
+
+    // Method to display data members
+    public void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Gender: " + gender);
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Qualification: " + qualification);
+        System.out.println("Subject: " + subject);
+        System.out.println("Department: " + department);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of teachers: ");
+        int n = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        // Create an array of Teacher objects
+        Teacher[] teachers = new Teacher[n];
+
+        // Initialize the Teacher objects
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for teacher " + (i + 1) + ":");
+            System.out.print("Name: ");
+            String name = scanner.nextLine();
+            System.out.print("Gender: ");
+            String gender = scanner.nextLine();
+            System.out.print("Employee ID: ");
+            int empId = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+            System.out.print("Qualification: ");
+            String qualification = scanner.nextLine();
+            System.out.print("Subject: ");
+            String subject = scanner.nextLine();
+            System.out.print("Department: ");
+            String department = scanner.nextLine();
+
+            teachers[i] = new Teacher(name, gender, empId, qualification, subject, department);
+        }
+
+        // Display the Teacher objects
+       System.out.println("details:");
+       for(int i=0;i<n;i++){
+           teachers[i].display();
+       
+       }
+    }
+}
